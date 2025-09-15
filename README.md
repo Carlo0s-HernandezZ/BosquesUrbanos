@@ -1,5 +1,5 @@
 # BosquesUrbanos
-<!-- 
+
 Descripción de este proyecto:
 Se trabaja en un proyecto front donde se tiene la administración de todos los parques de Guadalajara, en el cual encontrarás funciones como:
 # Visualización
@@ -62,7 +62,6 @@ Incluye los assets con Vite
 Si tienes un Blade base, o en cada una de las vistas HTML, agrega esta línea:
 
 @vite(['resources/css/app.css', 'resources/js/app.js'])
--->
 
 <!-- 
 Descripción de este proyecto:

@@ -1,0 +1,720 @@
+{
+	"info": {
+		"_postman_id": "74f8496b-da30-4272-a1f3-bf1aa2edcd33",
+		"name": "REST API basics: CRUD, test & variable",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" alt=\"\" height=\"1530\" width=\"2162\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42480827"
+	},
+	"item": [
+		{
+			"name": "Get data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/info?id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"info"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": [
+				{
+					"name": "Get data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ambu-Public-Key",
+								"value": "AMBU-T-sb1mV21u9qhGkySo-50377249-5pLqkV",
+								"type": "text"
+							},
+							{
+								"key": "Ambu-Private-Key",
+								"value": "AMBU-3yFzfnT0hYNq8pq0zZMIH8WXGidZwWco4M5adoRD55GjuqAZ-riAfldmDWfJAoPtj-T",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://azuritaa33.sg-host.com/api/web/v1/parks",
+							"protocol": "https",
+							"host": [
+								"azuritaa33",
+								"sg-host",
+								"com"
+							],
+							"path": [
+								"api",
+								"web",
+								"v1",
+								"parks"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Sep 2025 01:59:47 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private, must-revalidate"
+						},
+						{
+							"key": "pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "expires",
+							"value": "-1"
+						},
+						{
+							"key": "X-Httpd-Modphp",
+							"value": "1"
+						},
+						{
+							"key": "Host-Header",
+							"value": "6b7412fb82ca5edfd0917e3957f05d89"
+						},
+						{
+							"key": "X-Proxy-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Proxy-Cache-Info",
+							"value": "0 NC:000000 UP:"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"park_token\": \"8bf9b6b7-17d4-42b0-a660-5118d141f01c\",\n            \"park_img_uri\": \"parks/PMG-20250909-224711.jpg\",\n            \"park_name\": \"Gilberto\",\n            \"park_abbreviation\": \"PMG\",\n            \"park_address\": \"Av. Ludwig Van Beethoven 58000, La Estancia.\",\n            \"park_city\": \"Zapopan\",\n            \"park_state\": \"Jalisco\",\n            \"park_zip_code\": 45020,\n            \"park_latitude\": 20.67060274261400110162867349572479724884033203125,\n            \"park_longitude\": -103.4397163852599987876601517200469970703125,\n            \"created_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"updated_at\": \"2025-09-10T04:47:11.000000Z\",\n            \"links\": {\n                \"self\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/1\",\n                \"update\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/1\",\n                \"delete\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/1\",\n                \"store\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\",\n                \"index\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"park_token\": \"cfe729a1-3ea6-417a-96da-0ea35fb7965b\",\n            \"park_img_uri\": \"parks/BLC-20250909-230743.jpg\",\n            \"park_name\": \"El pepe\",\n            \"park_abbreviation\": \"BLC\",\n            \"park_address\": \"C. El Chaco 3200, Providencia.\",\n            \"park_city\": \"Guadalajara\",\n            \"park_state\": \"Jalisco\",\n            \"park_zip_code\": 44630,\n            \"park_latitude\": 20.70497490395700168619441683404147624969482421875,\n            \"park_longitude\": -103.3910196593599977177291293628513813018798828125,\n            \"created_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"updated_at\": \"2025-09-10T05:07:43.000000Z\",\n            \"links\": {\n                \"self\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/2\",\n                \"update\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/2\",\n                \"delete\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/2\",\n                \"store\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\",\n                \"index\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\"\n            }\n        },\n        {\n            \"id\": 3,\n            \"park_token\": \"088f031c-854d-4f79-964f-74d19c8ff0b6\",\n            \"park_img_uri\": \"parks/BLC 3-20250103-142552.jpg\",\n            \"park_name\": \"Bosque Pedagógico del Agua - Colomos III\",\n            \"park_abbreviation\": \"BLC 3\",\n            \"park_address\": \"Av. Acueducto, Lomas del Bosque.\",\n            \"park_city\": \"Zapopan\",\n            \"park_state\": \"Jalisco\",\n            \"park_zip_code\": 45110,\n            \"park_latitude\": 20.719167041091001379982117214240133762359619140625,\n            \"park_longitude\": -103.41198799935000351979397237300872802734375,\n            \"created_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"updated_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"links\": {\n                \"self\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/3\",\n                \"update\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/3\",\n                \"delete\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/3\",\n                \"store\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\",\n                \"index\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\"\n            }\n        },\n        {\n            \"id\": 4,\n            \"park_token\": \"ff3e888e-a087-4f2d-a408-1dcbe2c4c716\",\n            \"park_img_uri\": \"parks/PAA-20250103-142552.jpg\",\n            \"park_name\": \"Parque Agua Azul\",\n            \"park_abbreviation\": \"PAA\",\n            \"park_address\": \"Calz Independencia Sur 973, Centro.\",\n            \"park_city\": \"Guadalajara\",\n            \"park_state\": \"Jalisco\",\n            \"park_zip_code\": 44100,\n            \"park_latitude\": 20.659613678843999906575845670886337757110595703125,\n            \"park_longitude\": -103.3494505006899970567246782593429088592529296875,\n            \"created_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"updated_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"links\": {\n                \"self\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/4\",\n                \"update\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/4\",\n                \"delete\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/4\",\n                \"store\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\",\n                \"index\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\"\n            }\n        },\n        {\n            \"id\": 5,\n            \"park_token\": \"6be2833a-2bbc-44eb-bcd6-ef6b6701428c\",\n            \"park_img_uri\": \"parks/PGG-20250103-142552.jpg\",\n            \"park_name\": \"González Gallo\",\n            \"park_abbreviation\": \"PGG\",\n            \"park_address\": \"Calz. Jesús González Gallo 1290, El Rosario.\",\n            \"park_city\": \"Guadalajara\",\n            \"park_state\": \"Jalisco\",\n            \"park_zip_code\": 44898,\n            \"park_latitude\": 20.6490140949940013115337933413684368133544921875,\n            \"park_longitude\": -103.336681230349995530559681355953216552734375,\n            \"created_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"updated_at\": \"2025-09-10T04:41:23.000000Z\",\n            \"links\": {\n                \"self\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/5\",\n                \"update\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/5\",\n                \"delete\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/5\",\n                \"store\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\",\n                \"index\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\"\n            }\n        },\n        {\n            \"id\": 6,\n            \"park_token\": \"4d977f56-02e3-486d-8f10-9552f9cb5d4c\",\n            \"park_img_uri\": \"parks/PAL-20250103-142552.jpg\",\n            \"park_name\": \"Parque Alcalde\",\n            \"park_abbreviation\": \"PAL\",\n            \"park_address\": \"C. Jesús García 700, Alcalde Barranquitas.\",\n            \"park_city\": \"Guadalajara\",\n            \"park_state\": \"Jalisco\",\n            \"park_zip_code\": 44270,\n            \"park_latitude\": 20.69028593896999979051543050445616245269775390625,\n            \"park_longitude\": -103.3505569170300049108845996670424938201904296875,\n            \"created_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"updated_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"links\": {\n                \"self\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/6\",\n                \"update\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/6\",\n                \"delete\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/6\",\n                \"store\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\",\n                \"index\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\"\n            }\n        },\n        {\n            \"id\": 7,\n            \"park_token\": \"9e9d834e-26ba-4321-87cc-08503ea80a13\",\n            \"park_img_uri\": \"parks/PM-20250103-142552.jpg\",\n            \"park_name\": \"Parque Morelos\",\n            \"park_abbreviation\": \"PM\",\n            \"park_address\": \"Calz. Independencia Norte, Zona Centro.\",\n            \"park_city\": \"Guadalajara\",\n            \"park_state\": \"Jalisco\",\n            \"park_zip_code\": 44280,\n            \"park_latitude\": 20.680769443424001252651578397490084171295166015625,\n            \"park_longitude\": -103.3405639747000037687030271627008914947509765625,\n            \"created_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"updated_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"links\": {\n                \"self\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/7\",\n                \"update\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/7\",\n                \"delete\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/7\",\n                \"store\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\",\n                \"index\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\"\n            }\n        },\n        {\n            \"id\": 8,\n            \"park_token\": \"00369200-b718-4e19-897a-83d037c8399c\",\n            \"park_img_uri\": \"parks/PDE-20250103-142552.jpg\",\n            \"park_name\": \"Parque de la Liberacion\",\n            \"park_abbreviation\": \"PDE\",\n            \"park_address\": \"El Dean.\",\n            \"park_city\": \"Guadalajara\",\n            \"park_state\": \"Jalisco\",\n            \"park_zip_code\": 44440,\n            \"park_latitude\": 20.636847736324998692225562990643084049224853515625,\n            \"park_longitude\": -103.3457067732999945519622997380793094635009765625,\n            \"created_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"updated_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"links\": {\n                \"self\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/8\",\n                \"update\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/8\",\n                \"delete\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/8\",\n                \"store\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\",\n                \"index\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\"\n            }\n        },\n        {\n            \"id\": 9,\n            \"park_token\": \"75dbad9f-326d-4121-803a-7e48b51c2f5e\",\n            \"park_img_uri\": \"parks/PAC-20250103-142552.jpg\",\n            \"park_name\": \"Parque Ávila Camacho\",\n            \"park_abbreviation\": \"PAC\",\n            \"park_address\": \"Av. Manuel Ávila Camacho S/N, Lomas del Country.\",\n            \"park_city\": \"Guadalajara\",\n            \"park_state\": \"Jalisco\",\n            \"park_zip_code\": 44610,\n            \"park_latitude\": 20.71214760596100035172639763914048671722412109375,\n            \"park_longitude\": -103.3723570323700045037185191176831722259521484375,\n            \"created_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"updated_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"links\": {\n                \"self\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/9\",\n                \"update\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/9\",\n                \"delete\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/9\",\n                \"store\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\",\n                \"index\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\"\n            }\n        },\n        {\n            \"id\": 10,\n            \"park_token\": \"f95419e0-a978-412c-a328-c84d5f2ec916\",\n            \"park_img_uri\": \"parks/PNH-20250103-142552.jpg\",\n            \"park_name\": \"Parque Natural Huentitán\",\n            \"park_abbreviation\": \"PNH\",\n            \"park_address\": \"Huentitán El Bajo.\",\n            \"park_city\": \"Guadalajara\",\n            \"park_state\": \"Jalisco\",\n            \"park_zip_code\": 44390,\n            \"park_latitude\": 20.723385497020000656220872770063579082489013671875,\n            \"park_longitude\": -103.3141991746999934775885776616632938385009765625,\n            \"created_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"updated_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"links\": {\n                \"self\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/10\",\n                \"update\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/10\",\n                \"delete\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/10\",\n                \"store\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\",\n                \"index\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\"\n            }\n        },\n        {\n            \"id\": 11,\n            \"park_token\": \"93117845-729b-44ff-aeac-07617b57a48b\",\n            \"park_img_uri\": \"parks/PLQ-20250103-142552.jpg\",\n            \"park_name\": \"Parque General Luis Quintanar\",\n            \"park_abbreviation\": \"PLQ\",\n            \"park_address\": \"Av. Malecón, Tetlán.\",\n            \"park_city\": \"Guadalajara\",\n            \"park_state\": \"Jalisco\",\n            \"park_zip_code\": 44820,\n            \"park_latitude\": 20.65932919224000130498097860254347324371337890625,\n            \"park_longitude\": -103.26938169004000656059361062943935394287109375,\n            \"created_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"updated_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"links\": {\n                \"self\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/11\",\n                \"update\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/11\",\n                \"delete\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/11\",\n                \"store\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\",\n                \"index\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\"\n            }\n        },\n        {\n            \"id\": 12,\n            \"park_token\": \"e7f94f15-ddeb-4d64-b0da-a51a9eb75bd6\",\n            \"park_img_uri\": \"parks/PMN-20250103-142552.jpg\",\n            \"park_name\": \"Parque Montenegro\",\n            \"park_abbreviation\": \"PMN\",\n            \"park_address\": \"Av. de la Solidaridad Iberoamericana 7007, La Capilla, Las Pintas.\",\n            \"park_city\": \"Guadalajara\",\n            \"park_state\": \"Jalisco\",\n            \"park_zip_code\": 45690,\n            \"park_latitude\": 20.574006748220000417859409935772418975830078125,\n            \"park_longitude\": -103.3162118900499990559183061122894287109375,\n            \"created_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"updated_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"links\": {\n                \"self\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/12\",\n                \"update\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/12\",\n                \"delete\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/12\",\n                \"store\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\",\n                \"index\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\"\n            }\n        },\n        {\n            \"id\": 13,\n            \"park_token\": \"509bb740-fd64-435c-abe0-ad12ca592125\",\n            \"park_img_uri\": \"parks/BUT-20250103-142552.jpg\",\n            \"park_name\": \"Bosque Urbano Tlaquepaque\",\n            \"park_abbreviation\": \"BUT\",\n            \"park_address\": \"Batalla de Zacatecas, Calz. Lázaro Cárdenas Ote. esquina, Revolución.\",\n            \"park_city\": \"San Pedro Tlaquepaque\",\n            \"park_state\": \"Jalisco\",\n            \"park_zip_code\": 45580,\n            \"park_latitude\": 20.62286844185199896628546412102878093719482421875,\n            \"park_longitude\": -103.3155469832699964172206819057464599609375,\n            \"created_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"updated_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"links\": {\n                \"self\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/13\",\n                \"update\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/13\",\n                \"delete\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/13\",\n                \"store\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\",\n                \"index\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\"\n            }\n        },\n        {\n            \"id\": 14,\n            \"park_token\": \"d579a484-4515-4150-9799-493090f7dc73\",\n            \"park_img_uri\": \"parks/PDB-20250103-142552.jpg\",\n            \"park_name\": \"Parque Puerta de la Barranca\",\n            \"park_abbreviation\": \"PDB\",\n            \"park_address\": \"Av. Belisario Domínguez 4444, Dr Atl.\",\n            \"park_city\": \"Guadalajara\",\n            \"park_state\": \"Jalisco\",\n            \"park_zip_code\": 44399,\n            \"park_latitude\": 20.724582857013000847246075863949954509735107421875,\n            \"park_longitude\": -103.291473936740004546663840301334857940673828125,\n            \"created_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"updated_at\": \"2025-09-03T20:51:32.000000Z\",\n            \"links\": {\n                \"self\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/14\",\n                \"update\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/14\",\n                \"delete\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/14\",\n                \"store\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\",\n                \"index\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\"\n            }\n        },\n        {\n            \"id\": 21,\n            \"park_token\": \"9763787e-4675-484b-8c7d-3c1ffa1688a8\",\n            \"park_img_uri\": \"parks/PCRA-20250914-154110.jpg\",\n            \"park_name\": \"Parque Cerro de la Reina\",\n            \"park_abbreviation\": \"PCRA\",\n            \"park_address\": \"Av. Cihualpilli S/N, Pachaguillo.\",\n            \"park_city\": \"Tonalá\",\n            \"park_state\": \"Jalisco\",\n            \"park_zip_code\": 45043,\n            \"park_latitude\": 20.70497490395700168619441683404147624969482421875,\n            \"park_longitude\": -103.3910196593599977177291293628513813018798828125,\n            \"created_at\": \"2025-09-14T21:33:34.000000Z\",\n            \"updated_at\": \"2025-09-14T21:41:10.000000Z\",\n            \"links\": {\n                \"self\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/21\",\n                \"update\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/21\",\n                \"delete\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/21\",\n                \"store\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\",\n                \"index\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\"\n            }\n        },\n        {\n            \"id\": 23,\n            \"park_token\": \"7f7cc3b8-3404-439b-acf0-4b3273409cd2\",\n            \"park_img_uri\": \"parks/LAP-20250914-154637.jpg\",\n            \"park_name\": \"la perla tapatia\",\n            \"park_abbreviation\": \"LAP\",\n            \"park_address\": \"Av. Ludwig Van Beethoven 58000, La Estancia.\",\n            \"park_city\": \"Guadalajara\",\n            \"park_state\": \"Jalisco\",\n            \"park_zip_code\": 44630,\n            \"park_latitude\": 20.67060274261400110162867349572479724884033203125,\n            \"park_longitude\": -103.4397163852599987876601517200469970703125,\n            \"created_at\": \"2025-09-14T21:46:37.000000Z\",\n            \"updated_at\": \"2025-09-14T21:46:37.000000Z\",\n            \"links\": {\n                \"self\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/23\",\n                \"update\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/23\",\n                \"delete\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/23\",\n                \"store\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\",\n                \"index\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\"\n            }\n        },\n        {\n            \"id\": 29,\n            \"park_token\": \"bd95d3b4-f8df-4fd2-826a-7de084b08b2f\",\n            \"park_img_uri\": \"parks/PCRC-20250914-172737.jpg\",\n            \"park_name\": \"Parque Cerro del Cerrucho\",\n            \"park_abbreviation\": \"PCRC\",\n            \"park_address\": \"Av. Cihualpilli S/N, Pachaguillo.\",\n            \"park_city\": \"Tonalá\",\n            \"park_state\": \"Jalisco\",\n            \"park_zip_code\": 45400,\n            \"park_latitude\": 20.634154454585999616256231092847883701324462890625,\n            \"park_longitude\": -103.2387044359600025700274272821843624114990234375,\n            \"created_at\": \"2025-09-14T23:27:37.000000Z\",\n            \"updated_at\": \"2025-09-14T23:27:37.000000Z\",\n            \"links\": {\n                \"self\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/29\",\n                \"update\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/29\",\n                \"delete\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/29\",\n                \"store\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\",\n                \"index\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\"\n            }\n        },\n        {\n            \"id\": 30,\n            \"park_token\": \"801b3e6a-8221-4d31-a75b-18e9fde42814\",\n            \"park_img_uri\": \"parks/PC-20250914-195734.jpg\",\n            \"park_name\": \"Parque Cansaditas\",\n            \"park_abbreviation\": \"PC\",\n            \"park_address\": \"Av. Cihualpilli S/N, Pachaguillo.\",\n            \"park_city\": \"Tonalá\",\n            \"park_state\": \"Jalisco\",\n            \"park_zip_code\": 45400,\n            \"park_latitude\": 20.634154454585999616256231092847883701324462890625,\n            \"park_longitude\": -103.2387044359600025700274272821843624114990234375,\n            \"created_at\": \"2025-09-15T01:57:34.000000Z\",\n            \"updated_at\": \"2025-09-15T01:57:34.000000Z\",\n            \"links\": {\n                \"self\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/30\",\n                \"update\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/30\",\n                \"delete\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/30\",\n                \"store\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\",\n                \"index\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\"\n            }\n        }\n    ],\n    \"status\": 200\n}"
+				}
+			]
+		},
+		{
+			"name": "Post data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/info",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"info"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": [
+				{
+					"name": "Post data",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ambu-Public-Key",
+								"value": "AMBU-T-sb1mV21u9qhGkySo-50377249-5pLqkV",
+								"type": "text"
+							},
+							{
+								"key": "Ambu-Private-Key",
+								"value": "AMBU-3yFzfnT0hYNq8pq0zZMIH8WXGidZwWco4M5adoRD55GjuqAZ-riAfldmDWfJAoPtj-T",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"park_name\": \"Parque Cansaditas\",\n\"park_abbreviation\": \"PC\",\n\"park_img_url\": \"https://www.w3schools.com/w3css/img_lights.jpg\",\n\"park_address\": \"Av. Cihualpilli S/N, Pachaguillo.\",\n\"park_city\": \"Tonalá\",\n\"park_state\": \"Jalisco\",\n\"park_zip_code\": 45400,\n\"park_latitude\": 20.634154454586444,\n\"park_longitude\": -103.23870443595837\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://azuritaa33.sg-host.com/api/web/v1/parks",
+							"protocol": "https",
+							"host": [
+								"azuritaa33",
+								"sg-host",
+								"com"
+							],
+							"path": [
+								"api",
+								"web",
+								"v1",
+								"parks"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Sep 2025 01:57:34 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private, must-revalidate"
+						},
+						{
+							"key": "pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "expires",
+							"value": "-1"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Httpd-Modphp",
+							"value": "1"
+						},
+						{
+							"key": "Host-Header",
+							"value": "8441280b0c35cbc1147f8ba998a563a7"
+						},
+						{
+							"key": "X-Proxy-Cache-Info",
+							"value": "DT:1"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 30,\n        \"park_token\": \"801b3e6a-8221-4d31-a75b-18e9fde42814\",\n        \"park_img_uri\": \"parks/PC-20250914-195734.jpg\",\n        \"park_name\": \"Parque Cansaditas\",\n        \"park_abbreviation\": \"PC\",\n        \"park_address\": \"Av. Cihualpilli S/N, Pachaguillo.\",\n        \"park_city\": \"Tonalá\",\n        \"park_state\": \"Jalisco\",\n        \"park_zip_code\": 45400,\n        \"park_latitude\": 20.63415445458644370546608115546405315399169921875,\n        \"park_longitude\": -103.23870443595836832173517905175685882568359375,\n        \"created_at\": \"2025-09-15T01:57:34.000000Z\",\n        \"updated_at\": \"2025-09-15T01:57:34.000000Z\",\n        \"links\": {\n            \"self\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/30\",\n            \"update\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/30\",\n            \"delete\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/30\",\n            \"store\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\",\n            \"index\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\"\n        }\n    },\n    \"status\": 201\n}"
+				}
+			]
+		},
+		{
+			"name": "Update data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Successful PUT request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/info?id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"info"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+			},
+			"response": [
+				{
+					"name": "Update data",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ambu-Public-Key",
+								"value": "AMBU-T-sb1mV21u9qhGkySo-50377249-5pLqkV",
+								"type": "text"
+							},
+							{
+								"key": "Ambu-Private-Key",
+								"value": "AMBU-3yFzfnT0hYNq8pq0zZMIH8WXGidZwWco4M5adoRD55GjuqAZ-riAfldmDWfJAoPtj-T",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"park_name\": \"Parque Arboleras de Mazamitla\",\n\"park_abbreviation\": \"PAM\",\n\"park_img_url\": \"https://www.w3schools.com/w3css/img_lights.jpg\",\n\"park_address\": \"Av. Cihualpilli S/N, Pachaguillo.\",\n\"park_city\": \"Tonalá\",\n\"park_state\": \"Jalisco\",\n\"park_zip_code\": 45400,\n\"park_latitude\": 20.634154454586444,\n\"park_longitude\": -103.23870443595837\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://azuritaa33.sg-host.com/api/web/v1/parks/30",
+							"protocol": "https",
+							"host": [
+								"azuritaa33",
+								"sg-host",
+								"com"
+							],
+							"path": [
+								"api",
+								"web",
+								"v1",
+								"parks",
+								"30"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Sep 2025 02:00:16 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private, must-revalidate"
+						},
+						{
+							"key": "pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "expires",
+							"value": "-1"
+						},
+						{
+							"key": "X-Httpd-Modphp",
+							"value": "1"
+						},
+						{
+							"key": "Host-Header",
+							"value": "8441280b0c35cbc1147f8ba998a563a7"
+						},
+						{
+							"key": "X-Proxy-Cache-Info",
+							"value": "DT:1"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 30,\n        \"park_token\": \"801b3e6a-8221-4d31-a75b-18e9fde42814\",\n        \"park_img_uri\": \"parks/PAM-20250914-200016.jpg\",\n        \"park_name\": \"Parque Arboleras de Mazamitla\",\n        \"park_abbreviation\": \"PAM\",\n        \"park_address\": \"Av. Cihualpilli S/N, Pachaguillo.\",\n        \"park_city\": \"Tonalá\",\n        \"park_state\": \"Jalisco\",\n        \"park_zip_code\": 45400,\n        \"park_latitude\": 20.63415445458644370546608115546405315399169921875,\n        \"park_longitude\": -103.23870443595836832173517905175685882568359375,\n        \"created_at\": \"2025-09-15T01:57:34.000000Z\",\n        \"updated_at\": \"2025-09-15T02:00:16.000000Z\",\n        \"links\": {\n            \"self\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/30\",\n            \"update\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/30\",\n            \"delete\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/30\",\n            \"store\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\",\n            \"index\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\"\n        }\n    },\n    \"status\": 200\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Successful DELETE request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/info?id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"info"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+			},
+			"response": [
+				{
+					"name": "Delete data",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ambu-Public-Key",
+								"value": "AMBU-T-sb1mV21u9qhGkySo-50377249-5pLqkV",
+								"type": "text"
+							},
+							{
+								"key": "Ambu-Private-Key",
+								"value": "AMBU-3yFzfnT0hYNq8pq0zZMIH8WXGidZwWco4M5adoRD55GjuqAZ-riAfldmDWfJAoPtj-T",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://azuritaa33.sg-host.com/api/web/v1/parks/30",
+							"protocol": "https",
+							"host": [
+								"azuritaa33",
+								"sg-host",
+								"com"
+							],
+							"path": [
+								"api",
+								"web",
+								"v1",
+								"parks",
+								"30"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Sep 2025 02:03:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private, must-revalidate"
+						},
+						{
+							"key": "pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "expires",
+							"value": "-1"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Httpd-Modphp",
+							"value": "1"
+						},
+						{
+							"key": "Host-Header",
+							"value": "8441280b0c35cbc1147f8ba998a563a7"
+						},
+						{
+							"key": "X-Proxy-Cache-Info",
+							"value": "DT:1"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Get data ID",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Get data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ambu-Public-Key",
+								"value": "AMBU-T-sb1mV21u9qhGkySo-50377249-5pLqkV",
+								"type": "text"
+							},
+							{
+								"key": "Ambu-Private-Key",
+								"value": "AMBU-3yFzfnT0hYNq8pq0zZMIH8WXGidZwWco4M5adoRD55GjuqAZ-riAfldmDWfJAoPtj-T ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://azuritaa33.sg-host.com/api/web/v1/parks/29",
+							"protocol": "https",
+							"host": [
+								"azuritaa33",
+								"sg-host",
+								"com"
+							],
+							"path": [
+								"api",
+								"web",
+								"v1",
+								"parks",
+								"29"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Sep 2025 02:10:09 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private, must-revalidate"
+						},
+						{
+							"key": "pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "expires",
+							"value": "-1"
+						},
+						{
+							"key": "X-Httpd-Modphp",
+							"value": "1"
+						},
+						{
+							"key": "Host-Header",
+							"value": "6b7412fb82ca5edfd0917e3957f05d89"
+						},
+						{
+							"key": "X-Proxy-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Proxy-Cache-Info",
+							"value": "0 NC:000000 UP:"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"data\": {\n        \"id\": 29,\n        \"park_token\": \"bd95d3b4-f8df-4fd2-826a-7de084b08b2f\",\n        \"park_img_uri\": \"parks/PCRC-20250914-172737.jpg\",\n        \"park_name\": \"Parque Cerro del Cerrucho\",\n        \"park_abbreviation\": \"PCRC\",\n        \"park_address\": \"Av. Cihualpilli S/N, Pachaguillo.\",\n        \"park_city\": \"Tonalá\",\n        \"park_state\": \"Jalisco\",\n        \"park_zip_code\": 45400,\n        \"park_latitude\": 20.634154454585999616256231092847883701324462890625,\n        \"park_longitude\": -103.2387044359600025700274272821843624114990234375,\n        \"created_at\": \"2025-09-14T23:27:37.000000Z\",\n        \"updated_at\": \"2025-09-14T23:27:37.000000Z\",\n        \"links\": {\n            \"self\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/29\",\n            \"update\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/29\",\n            \"delete\": \"https://azuritaa33.sg-host.com/api/web/v1/parks/29\",\n            \"store\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\",\n            \"index\": \"https://azuritaa33.sg-host.com/api/web/v1/parks\"\n        }\n    }\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://template.postman-echo.com"
+		}
+	]
+}
